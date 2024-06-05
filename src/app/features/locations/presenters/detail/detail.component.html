@@ -1,0 +1,11 @@
+<div class="location-detail" *ngIf="location">
+  <h2>{{ location.name }}</h2>
+  <p>Type: {{ location.type }}</p>
+  <p>Dimension: {{ location.dimension }}</p>
+  <h3>Residents</h3>
+  <ul>
+    <li *ngFor="let resident of location.residents">
+      <a [routerLink]="['/characters', resident.split('/').pop()]">{{ resident.split('/').pop() }}</a>
+    </li>
+  </ul>
+</div>

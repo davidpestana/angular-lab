@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { LocationsRoutingModule } from './locations-routing.module';
 import { ContainerComponent } from './container/container.component';
-import { PresenterComponent } from './presenter/presenter.component';
+import { DetailComponent } from './presenters/detail/detail.component';
+import { ListComponent } from './presenters/list/list.component';
 
 
 @NgModule({
   declarations: [
     ContainerComponent,
-    PresenterComponent
+    DetailComponent,
+    ListComponent
   ],
   imports: [
     CommonModule,

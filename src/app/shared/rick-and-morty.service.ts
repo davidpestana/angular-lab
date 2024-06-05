@@ -6,6 +6,12 @@ export interface Character {
   image: string;
   name: string;
   id: number;
+  location: Location;
+  origin: any;
+  gender: string;
+  species: string;
+  status: string;
+
 }
 
 export interface Location {
@@ -13,6 +19,9 @@ export interface Location {
   dimension: string;
   type: string;
   name: string;
+  url: string;
+  residents: string;
+  
 }
 
 @Injectable({

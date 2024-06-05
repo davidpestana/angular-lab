@@ -1,4 +1,7 @@
+
+<app-detail [location]="location$ | async" />
+
 <div class="container">
   <h2>Locations</h2>
-  <app-presenter [locations]="locations$ | async"></app-presenter>
+  <app-list [locations]="locations$ | async" />
 </div>

@@ -1,6 +1,6 @@
-<div class="location-list" >
+<div class="location-list">
   <div class="location-card" *ngFor="let location of locations">
-    <h3>{{ location.name }}</h3>
+    <h3><a [routerLink]="['/locations', location.id]">{{ location.name }}</a></h3>
     <p>{{ location.type }} - {{ location.dimension }}</p>
   </div>
 </div>

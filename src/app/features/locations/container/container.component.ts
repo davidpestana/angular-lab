@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { RickAndMortyService } from '../../../shared/rick-and-morty.service';
+import { Location, RickAndMortyService } from '../../../shared/rick-and-morty.service';
+import { Observable, map, switchMap } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-container',
@@ -8,8 +10,21 @@ import { RickAndMortyService } from '../../../shared/rick-and-morty.service';
 })
 export class ContainerComponent {
   locations$ = this.rickAndMortyService.getLocations();
+  location$: Observable<Location> | null = null;
 
-  constructor(private rickAndMortyService: RickAndMortyService) { }
 
-  ngOnInit(): void {}
+  constructor(
+    private route: ActivatedRoute,
+    private rickAndMortyService: RickAndMortyService
+  ) {
+
+
+  }
+
+  ngOnInit(): void {
+    this.location$ = this.route.params.pipe(
+      map(({id}) => id),
+      switchMap((id) => this.rickAndMortyService.getLocation(id))
+    );
+  }
 }
