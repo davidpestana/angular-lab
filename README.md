@@ -1,3 +1,8 @@
+# Dokerize
+
+docker build -t angular ./locals
+docker run -p 4200:4200 -it --rm -v $(pwd):/app angular bash
+
 # Lab
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.

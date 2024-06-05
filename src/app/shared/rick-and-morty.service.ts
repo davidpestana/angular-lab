@@ -24,6 +24,10 @@ export class RickAndMortyService {
 
   constructor(private http: HttpClient) { }
 
+  getData<T>(data:any): T {
+    return {...data};
+  }
+
   getResults<T>({results}:any): T[] {
     return results;
   }
@@ -40,6 +44,11 @@ export class RickAndMortyService {
       );
   }
 
+  getCharacter(id:number): Observable<Character> {
+    return this.http.get(`${this.baseUrl}/character/${id}`)
+      .pipe(map(this.getData<Character>));
+  }
+
   getLocations(): Observable<Location[]> {
     return this.http.get(`${this.baseUrl}/location`)
       .pipe(
@@ -48,5 +57,9 @@ export class RickAndMortyService {
       );
   }
 
+  getLocation(id:number): Observable<Location> {
+    return this.http.get(`${this.baseUrl}/location/${id}`)
+      .pipe(map(this.getData<Location>));
+  }
 
 }
