@@ -45,8 +45,8 @@ export class RickAndMortyService {
     false || console.log(info, results);
   }
 
-  getCharacters(): Observable<Character[]> {
-    return this.http.get(`${this.baseUrl}/character`)
+  getCharacters(page = 0): Observable<Character[]> {
+    return this.http.get(`${this.baseUrl}/character/?page=${page}`)
       .pipe(
         tap(this.showInfo<Character>),
         map(this.getResults<Character>),

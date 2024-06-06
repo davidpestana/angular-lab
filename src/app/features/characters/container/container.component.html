@@ -1,2 +1,5 @@
+<app-total [total]="total$ | async"></app-total>
+<app-page [page]="page$ | async"></app-page>
+<app-actions (action)="actionHandler($event)"></app-actions>
 <app-detail [character]="character$ | async"></app-detail>
 <app-list [characters]="characters$ | async"></app-list>
